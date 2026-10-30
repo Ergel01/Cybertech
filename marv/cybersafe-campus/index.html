@@ -1,0 +1,407 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cybertech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">
+          <span>cybertech</span>
+        </div>
+
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="main-nav" id="mainNav">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#quiz" class="student-only">Student Quiz</a>
+          <a href="#glossary" class="student-only">Glossary</a>
+          <a href="#report-scam" class="student-only">Report Scam</a>
+          <a href="#tips" class="member-only">Tips</a>
+          <a href="#catalog" class="member-only">Catalog</a>
+          <a href="#admin" class="admin-only">Admin Panel</a>
+          <button type="button" id="navLogin" class="nav-login-btn">Log In</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero-section">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Student Cyber Defense</p>
+            <h1>Stay smart. Stay safe. Stay online.</h1>
+            <p class="subtitle">
+              Learn how to protect your data, recognize scams, and build safer online habits as a student.
+            </p>
+            <div class="cta-row">
+              <a class="primary-btn" href="#login">Log In to Take the Quiz</a>
+              <a class="secondary-btn" href="#about">Learn More</a>
+            </div>
+            <div class="stats-row">
+              <div>
+                <strong>5</strong>
+                <span>Quick checks</span>
+              </div>
+              <div>
+                <strong>5</strong>
+                <span>Questions</span>
+              </div>
+              <div>
+                <strong>90%</strong>
+                <span>Awareness goal</span>
+              </div>
+            </div>
+          </div>
+
+          <aside id="login" class="login-panel" aria-label="student login">
+            <div class="login-card">
+              <p class="eyebrow">Student Portal</p>
+              <h2>Log In</h2>
+
+              <form id="loginForm" class="login-form">
+                <label>
+                  <span>Email</span>
+                  <input id="loginEmail" type="email" placeholder="student@cybersafe.test" required />
+                </label>
+                <label>
+                  <span>Password</span>
+                  <input id="loginPassword" type="password" placeholder="Enter your password" required />
+                </label>
+                <button type="submit" class="primary-btn full-width">Log In</button>
+              </form>
+
+              <p id="loginMessage" class="login-message hidden"></p>
+
+              <div class="member-box">
+                <p>Student demo:</p>
+                <strong>student@cybersafe.test</strong>
+                <span>safe12345</span>
+                <p class="demo-space">Admin demo:</p>
+                <strong>admin@cybersafe.test</strong>
+                <span>admin12345</span>
+              </div>
+
+              <button id="logoutBtn" type="button" class="secondary-btn full-width hidden">Log Out</button>
+            </div>
+          </aside>
+
+          <aside id="welcomeCard" class="welcome-panel hidden" aria-live="polite">
+            <div class="welcome-card">
+              <p class="eyebrow">Access Granted</p>
+              <h2 id="welcomeTitle">Welcome back</h2>
+              <p id="welcomeText">You are logged in and your student features are unlocked.</p>
+              <button id="welcomeLogoutBtn" type="button" class="secondary-btn full-width">Log Out</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="about" class="content-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">About the Problem</p>
+            <h2>Common digital threats students face every day</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article class="info-card">
+              <span class="card-number">01</span>
+              <h3>Phishing</h3>
+              <p>Fake messages pretend to be from schools, banks, or social media to steal passwords and personal information.</p>
+            </article>
+            <article class="info-card">
+              <span class="card-number">02</span>
+              <h3>Online Scams</h3>
+              <p>Scam messages often promise prizes or urgent help, pushing students to click quickly before thinking.</p>
+            </article>
+            <article class="info-card">
+              <span class="card-number">03</span>
+              <h3>Weak Passwords</h3>
+              <p>Simple or reused passwords are easy to guess and can put school, personal, and social accounts at risk.</p>
+            </article>
+            <article class="info-card">
+              <span class="card-number">04</span>
+              <h3>Privacy Risks</h3>
+              <p>Sharing too much information online can expose names, locations, routines, and private details to strangers.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="quiz" class="content-section quiz-section student-only-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Student Quiz</p>
+            <h2>Test your cybersecurity awareness</h2>
+          </div>
+
+          <form id="quizForm" class="quiz-form">
+            <div id="studentQuizContainer"></div>
+
+            <div class="quiz-actions">
+              <button type="button" id="checkScore" class="primary-btn">Check My Score</button>
+            </div>
+            <div id="quizResult" class="result-box hidden"></div>
+          </form>
+        </div>
+      </section>
+
+      <section id="student-dashboard" class="content-section student-only-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Student Dashboard</p>
+            <h2>Your personal cybersecurity progress</h2>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="dashboard-card dashboard-overview">
+              <h3>Protection Score</h3>
+              <div class="score-circle"><span id="studentScoreValue">0%</span></div>
+              <p id="studentProgressText">Complete actions to strengthen your online safety.</p>
+            </div>
+
+            <div class="dashboard-card">
+              <h3>Daily Security Checklist</h3>
+              <ul id="studentChecklist" class="checklist"></ul>
+            </div>
+
+            <div class="dashboard-card">
+              <h3>Threat Prevention</h3>
+              <ul class="threat-list">
+                <li>Always verify sender names and URLs before clicking a link.</li>
+                <li>Never share passwords, OTP codes, or banking details with anyone.</li>
+                <li>Check privacy settings and limit personal information shared online.</li>
+                <li>Update apps and devices to reduce security gaps.</li>
+              </ul>
+            </div>
+
+            <div class="dashboard-card">
+              <h3>Today's Challenge</h3>
+              <p id="studentChallenge">Review a suspicious message by checking the sender, link, and urgency before you act.</p>
+              <button type="button" id="newChallengeBtn" class="secondary-btn full-width">New Challenge</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="glossary" class="content-section student-only-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Cybersecurity Glossary</p>
+            <h2>Quick meaning of common terms</h2>
+          </div>
+
+          <div class="glossary-grid">
+            <article class="glossary-card">
+              <span class="catalog-tag">Threat</span>
+              <h3>Phishing</h3>
+              <p>A scam that tricks people into revealing passwords, codes, or personal data through fake messages or websites.</p>
+            </article>
+            <article class="glossary-card">
+              <span class="catalog-tag">Protection</span>
+              <h3>Two-Factor Authentication</h3>
+              <p>An extra security step that verifies a login using a second method, such as a code sent to a phone.</p>
+            </article>
+            <article class="glossary-card">
+              <span class="catalog-tag">Privacy</span>
+              <h3>Malware</h3>
+              <p>Malicious software designed to damage devices, steal data, or take control of systems without permission.</p>
+            </article>
+            <article class="glossary-card">
+              <span class="catalog-tag">Risk</span>
+              <h3>Social Engineering</h3>
+              <p>Manipulating people into giving away sensitive information by exploiting trust, urgency, or fear.</p>
+            </article>
+            <article class="glossary-card">
+              <span class="catalog-tag">Security</span>
+              <h3>Firewall</h3>
+              <p>A security system that monitors and controls incoming and outgoing network traffic to block threats.</p>
+            </article>
+            <article class="glossary-card">
+              <span class="catalog-tag">Safe practice</span>
+              <h3>Strong Password</h3>
+              <p>A long password made from unrelated words, numbers, and symbols that is difficult to guess or crack.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="report-scam" class="content-section student-only-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Report a Scam</p>
+            <h2>Share a suspicious message or website</h2>
+          </div>
+
+          <div class="scam-form-wrap">
+            <form id="scamReportForm" class="scam-form admin-form">
+              <label>
+                <span>Scam message</span>
+                <textarea id="scamMessage" rows="4" placeholder="Copy the suspicious message or screenshot details..." required></textarea>
+              </label>
+              <label>
+                <span>Website link</span>
+                <input id="scamWebsite" type="url" placeholder="https://example.com" required />
+              </label>
+              <label>
+                <span>Description</span>
+                <textarea id="scamDescription" rows="4" placeholder="Explain why this looks suspicious or unsafe..." required></textarea>
+              </label>
+              <button type="submit" class="primary-btn full-width">Submit Report</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="tips" class="content-section member-only-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Cybersecurity Tips</p>
+            <h2>Simple actions that strengthen your digital safety</h2>
+          </div>
+
+          <div class="tips-layout">
+            <div class="tip-intro">
+              <p>Students can protect themselves by creating strong passwords, enabling extra security, and checking messages carefully before clicking links or downloading files.</p>
+            </div>
+            <div class="tip-list">
+              <div class="tip-item"><strong>1</strong><span>Create strong passwords using long phrases and avoid reusing them across accounts.</span></div>
+              <div class="tip-item"><strong>2</strong><span>Turn on two-factor authentication to add another layer of protection to your accounts.</span></div>
+              <div class="tip-item"><strong>3</strong><span>Check sender names, email addresses, and URLs before opening suspicious messages or links.</span></div>
+              <div class="tip-item"><strong>4</strong><span>Use trusted apps and updates, and avoid downloading files from unverified sources.</span></div>
+              <div class="tip-item"><strong>5</strong><span>Review privacy settings and think carefully before sharing personal information online.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="catalog" class="content-section member-only-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Learning Catalog</p>
+            <h2>Explore student-focused cybersecurity modules</h2>
+          </div>
+
+          <div class="catalog-grid">
+            <article class="catalog-card">
+              <span class="catalog-tag">Phishing</span>
+              <h3>Phishing Defense</h3>
+              <p>Learn how to spot fake emails, verify requests, and avoid suspicious links and attachments.</p>
+            </article>
+            <article class="catalog-card">
+              <span class="catalog-tag">Security</span>
+              <h3>Password Security</h3>
+              <p>Build stronger habits with long passwords, unique accounts, and safe password management.</p>
+            </article>
+            <article class="catalog-card">
+              <span class="catalog-tag">Privacy</span>
+              <h3>Digital Privacy</h3>
+              <p>Understand how personal data is exposed online and how to limit unnecessary disclosure.</p>
+            </article>
+            <article class="catalog-card">
+              <span class="catalog-tag">Ethics</span>
+              <h3>Responsible Internet Use</h3>
+              <p>Practice respectful communication, ethical behavior, and critical thinking online.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="admin" class="content-section admin-only-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Admin Access</p>
+            <h2>Manage content and review student activity</h2>
+          </div>
+
+          <div class="admin-grid">
+            <div class="admin-card">
+              <h3>Add Learning Module</h3>
+              <form id="moduleForm" class="admin-form">
+                <label>
+                  <span>Module Title</span>
+                  <input id="moduleTitle" type="text" placeholder="Example: Mobile Security" required />
+                </label>
+                <label>
+                  <span>Short Description</span>
+                  <textarea id="moduleDesc" rows="3" placeholder="Write a brief description..."></textarea>
+                </label>
+                <button type="submit" class="primary-btn full-width">Add Module</button>
+              </form>
+            </div>
+
+            <div class="admin-card">
+              <h3>Add Quiz Question</h3>
+              <form id="quizAdminForm" class="admin-form">
+                <label>
+                  <span>Question</span>
+                  <input id="newQuestion" type="text" placeholder="Enter new quiz question" required />
+                </label>
+                <label>
+                  <span>Correct Answer</span>
+                  <input id="newAnswer" type="text" placeholder="Correct answer" required />
+                </label>
+                <button type="submit" class="primary-btn full-width">Add Question</button>
+              </form>
+            </div>
+
+            <div class="admin-card">
+              <h3>Current Modules</h3>
+              <ul class="activity-list" id="adminModulesList"></ul>
+            </div>
+
+            <div class="admin-card">
+              <h3>Quiz Question Library</h3>
+              <ul class="activity-list" id="adminQuestionsList"></ul>
+            </div>
+
+            <div class="admin-card">
+              <h3>Student Scam Reports</h3>
+              <ul class="activity-list" id="scamReportsList"></ul>
+            </div>
+
+            <div class="admin-card wide-card">
+              <h3>Student Activity</h3>
+              <div class="admin-summary-grid">
+                <div class="mini-stat">
+                  <span id="adminModuleCount">0</span>
+                  <p>Modules</p>
+                </div>
+                <div class="mini-stat">
+                  <span id="adminQuizCount">0</span>
+                  <p>Quiz Items</p>
+                </div>
+                <div class="mini-stat">
+                  <span id="adminScoreAverage">0%</span>
+                  <p>Average Score</p>
+                </div>
+              </div>
+              <ul class="activity-list" id="activityList"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© 2026 cybertech</p>
+        <p>Cybersecurity awareness for students</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
